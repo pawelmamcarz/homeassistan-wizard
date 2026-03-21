@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paweł Mamcarz — Home Automation Architect</title>
+  <meta name="description" content="Home Automation Architect — integracje KNX, Modbus, M-Bus, ESPHome, optymalizacja energii. 47 integracji, 3857 encji, 65 automatyzacji.">
+  <meta property="og:title" content="Paweł Mamcarz — Home Automation Architect">
+  <meta property="og:description" content="Gdy systemy nie chcą rozmawiać — sprawiamy, że muszą. 47 integracji, 3857 encji, 65 automatyzacji.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mamcarz.com">
+  <meta property="og:image" content="https://mamcarz.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230a0a0f'/><text x='4' y='23' font-family='monospace' font-size='18' font-weight='bold' fill='%2300d4aa'>PM</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav__logo">PM<span class="accent">.</span>ha</div>
+    <button class="nav__hamburger" id="nav-toggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav__links" id="nav-links">
+      <li><a href="#integrations">Integracje</a></li>
+      <li><a href="#projects">Projekty</a></li>
+      <li><a href="#energy">Energia</a></li>
+      <li><a href="#stack">Stack</a></li>
+      <li><a href="#contact" class="btn-outline">Kontakt</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <canvas class="hero__bg" id="hero-canvas"></canvas>
+    <div class="hero__content">
+      <p class="hero__eyebrow mono">HOME AUTOMATION ARCHITECT</p>
+      <h1 class="hero__name">Paweł<br>Mamcarz</h1>
+      <p class="hero__tagline">Gdy systemy nie chcą rozmawiać —<br>sprawiamy, że <em>muszą</em>.</p>
+      <div class="hero__stats">
+        <div class="stat">
+          <span class="stat__value mono" data-target="47">0</span>
+          <span class="stat__label">integracji</span>
+        </div>
+        <div class="stat">
+          <span class="stat__value mono" data-target="3857">0</span>
+          <span class="stat__label">encji</span>
+        </div>
+        <div class="stat">
+          <span class="stat__value mono" data-target="65">0</span>
+          <span class="stat__label">automatyzacji</span>
+        </div>
+        <div class="stat">
+          <span class="stat__value mono" data-target="847">0</span>
+          <span class="stat__label">dni uptime</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTEGRATION MAP -->
+  <section class="section" id="integrations">
+    <div class="section__header">
+      <span class="section__tag mono">// INTEGRATION MAP</span>
+      <h2>Wszystko ze wszystkim</h2>
+      <p class="section__desc">Kliknij węzeł, aby zobaczyć szczegóły integracji.</p>
+    </div>
+    <div class="integration-map" id="integration-map">
+      <!-- D3 force graph rendered here by script.js -->
+    </div>
+    <!-- Tooltip for integration map -->
+    <div class="map-tooltip" id="map-tooltip">
+      <div class="map-tooltip__header">
+        <span class="map-tooltip__group mono"></span>
+        <button class="map-tooltip__close">&times;</button>
+      </div>
+      <h4 class="map-tooltip__title"></h4>
+      <p class="map-tooltip__desc"></p>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="section" id="projects">
+    <div class="section__header">
+      <span class="section__tag mono">// KEY PROJECTS</span>
+      <h2>Projekty, które działają</h2>
+    </div>
+    <div class="projects-grid">
+
+      <article class="project-card" data-reveal>
+        <div class="project-card__tag">HVAC OPTIMIZATION</div>
+        <h3>Bivalent Heating Coordinator v4</h3>
+        <p>4-czynnikowy algorytm wyboru źródła ciepła (pompa / kocioł) w taryfie G12W. Oszczędności ~40% vs grzanie gazem przy 6°C.</p>
+        <div class="project-card__stack">
+          <span>HA Automations</span><span>Aquarea API</span><span>OpenTherm</span><span>Deye Modbus</span>
+        </div>
+        <div class="project-card__metric">
+          <span class="metric-value accent">-40%</span>
+          <span class="metric-label">koszt ogrzewania</span>
+        </div>
+      </article>
+
+      <article class="project-card" data-reveal>
+        <div class="project-card__tag">METERING</div>
+        <h3>Wireless M-Bus Metering</h3>
+        <p>Bezprzewodowy odczyt liczników Apator (woda x2, gaz) przez ESPHome na LoRa32. Live historia dobowa w HA.</p>
+        <div class="project-card__stack">
+          <span>ESPHome</span><span>LoRa32</span><span>WMBus</span><span>ApexCharts</span>
+        </div>
+        <div class="project-card__metric">
+          <span class="metric-value accent">3</span>
+          <span class="metric-label">liczniki bezprzewodowo</span>
+        </div>
+      </article>
+
+      <article class="project-card" data-reveal>
+        <div class="project-card__tag">ENERGY AI</div>
+        <h3>Mini-EMHASS Energy Optimizer</h3>
+        <p>Custom optymalizator (scipy.optimize.linprog) zarządzający ładowaniem Tesla i pompą ciepła w oknach taniej taryfy.</p>
+        <div class="project-card__stack">
+          <span>Python</span><span>scipy</span><span>HA REST API</span><span>Deye Modbus</span>
+        </div>
+        <div class="project-card__metric">
+          <span class="metric-value accent">-25%</span>
+          <span class="metric-label">koszt ładowania Tesla</span>
+        </div>
+      </article>
+
+      <article class="project-card" data-reveal>
+        <div class="project-card__tag">KNX</div>
+        <h3>Full KNX Integration</h3>
+        <p>14+ obwodów oświetlenia, klimatyzacja, wentylacja (fan speed via template entities). Unified control w HA.</p>
+        <div class="project-card__stack">
+          <span>KNX TP</span><span>HA KNX</span><span>mushroom-card</span><span>button-card</span>
+        </div>
+        <div class="project-card__metric">
+          <span class="metric-value accent">14+</span>
+          <span class="metric-label">obwodów KNX</span>
+        </div>
+      </article>
+
+      <article class="project-card" data-reveal>
+        <div class="project-card__tag">LOCAL FIRST</div>
+        <h3>Garage Migration: Cloud → Local</h3>
+        <p>Zastąpienie ZAMEL ROW-0xm (cloud-dependent) przez Waveshare ESP32-S3-POE-ETH 8DI/8RO. Pełna kontrola lokalna.</p>
+        <div class="project-card__stack">
+          <span>ESP32</span><span>ESPHome</span><span>PoE</span><span>Waveshare</span>
+        </div>
+        <div class="project-card__metric">
+          <span class="metric-value accent">0</span>
+          <span class="metric-label">zależności od chmury</span>
+        </div>
+      </article>
+
+      <article class="project-card" data-reveal>
+        <div class="project-card__tag">DIAGNOSTICS</div>
+        <h3>Core Config Recovery</h3>
+        <p>Odtworzenie uszkodzonego core.config_entries po crashu HA. Identyfikacja brakujących pól, przywrócenie 3857 encji i 65 automatyzacji.</p>
+        <div class="project-card__stack">
+          <span>HA Core</span><span>JSON debug</span><span>waste_collection</span>
+        </div>
+        <div class="project-card__metric">
+          <span class="metric-value accent">3857</span>
+          <span class="metric-label">encji przywróconych</span>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ENERGY FLOW -->
+  <section class="section section--dark" id="energy">
+    <div class="section__header">
+      <span class="section__tag mono">// ENERGY INTELLIGENCE</span>
+      <h2>Przepływ energii</h2>
+    </div>
+    <div class="energy-sankey" id="energy-sankey">
+      <svg id="energy-svg" viewBox="0 0 900 400" preserveAspectRatio="xMidYMid meet">
+        <!-- Energy flow nodes -->
+        <defs>
+          <filter id="energy-glow">
+            <feGaussianBlur stdDeviation="4" result="blur"/>
+            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+          <linearGradient id="grad-pv" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#f1c40f"/>
+            <stop offset="100%" stop-color="#ff6b35"/>
+          </linearGradient>
+          <linearGradient id="grad-teal" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#00d4aa"/>
+            <stop offset="100%" stop-color="#4a9eff"/>
+          </linearGradient>
+        </defs>
+
+        <!-- SOURCE: PV Panels -->
+        <g class="energy-node" transform="translate(60, 180)">
+          <rect x="-50" y="-30" width="100" height="60" rx="8" fill="rgba(241,196,15,0.12)" stroke="#f1c40f" stroke-width="1.5"/>
+          <text text-anchor="middle" y="-8" fill="#f1c40f" font-family="JetBrains Mono, monospace" font-size="11" font-weight="700">PV</text>
+          <text text-anchor="middle" y="10" fill="#f1c40f" font-family="JetBrains Mono, monospace" font-size="9" opacity="0.7">8.4 kW</text>
+        </g>
+
+        <!-- INVERTER: Deye -->
+        <g class="energy-node" transform="translate(260, 180)">
+          <rect x="-55" y="-30" width="110" height="60" rx="8" fill="rgba(0,212,170,0.12)" stroke="#00d4aa" stroke-width="1.5"/>
+          <text text-anchor="middle" y="-8" fill="#00d4aa" font-family="JetBrains Mono, monospace" font-size="11" font-weight="700">DEYE</text>
+          <text text-anchor="middle" y="10" fill="#00d4aa" font-family="JetBrains Mono, monospace" font-size="9" opacity="0.7">Hybrid Inverter</text>
+        </g>
+
+        <!-- TARGETS -->
+        <!-- Battery -->
+        <g class="energy-node" transform="translate(520, 60)">
+          <rect x="-60" y="-25" width="120" height="50" rx="8" fill="rgba(74,158,255,0.12)" stroke="#4a9eff" stroke-width="1.5"/>
+          <text text-anchor="middle" y="-4" fill="#4a9eff" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700">Battery</text>
+          <text text-anchor="middle" y="12" fill="#4a9eff" font-family="JetBrains Mono, monospace" font-size="9" opacity="0.7">48V LiFePO4</text>
+        </g>
+
+        <!-- Grid -->
+        <g class="energy-node" transform="translate(520, 145)">
+          <rect x="-60" y="-25" width="120" height="50" rx="8" fill="rgba(255,107,53,0.12)" stroke="#ff6b35" stroke-width="1.5"/>
+          <text text-anchor="middle" y="-4" fill="#ff6b35" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700">Grid</text>
+          <text text-anchor="middle" y="12" fill="#ff6b35" font-family="JetBrains Mono, monospace" font-size="9" opacity="0.7">export / import</text>
+        </g>
+
+        <!-- Tesla -->
+        <g class="energy-node" transform="translate(520, 230)">
+          <rect x="-60" y="-25" width="120" height="50" rx="8" fill="rgba(155,89,182,0.12)" stroke="#9b59b6" stroke-width="1.5"/>
+          <text text-anchor="middle" y="-4" fill="#9b59b6" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700">Tesla</text>
+          <text text-anchor="middle" y="12" fill="#9b59b6" font-family="JetBrains Mono, monospace" font-size="9" opacity="0.7">11 kW charging</text>
+        </g>
+
+        <!-- Heat Pump -->
+        <g class="energy-node" transform="translate(520, 315)">
+          <rect x="-60" y="-25" width="120" height="50" rx="8" fill="rgba(0,212,170,0.12)" stroke="#00d4aa" stroke-width="1.5"/>
+          <text text-anchor="middle" y="-4" fill="#00d4aa" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700">Aquarea</text>
+          <text text-anchor="middle" y="12" fill="#00d4aa" font-family="JetBrains Mono, monospace" font-size="9" opacity="0.7">2.1 kW</text>
+        </g>
+
+        <!-- Home -->
+        <g class="energy-node" transform="translate(740, 180)">
+          <rect x="-55" y="-30" width="110" height="60" rx="8" fill="rgba(226,226,232,0.08)" stroke="#e2e2e8" stroke-width="1.5"/>
+          <text text-anchor="middle" y="-8" fill="#e2e2e8" font-family="JetBrains Mono, monospace" font-size="11" font-weight="700">HOME</text>
+          <text text-anchor="middle" y="10" fill="#e2e2e8" font-family="JetBrains Mono, monospace" font-size="9" opacity="0.7">loads</text>
+        </g>
+
+        <!-- FLOW PATHS (animated) -->
+        <!-- PV → Deye -->
+        <path class="energy-flow" d="M 110 180 L 205 180" stroke="url(#grad-pv)" stroke-width="3" fill="none" stroke-dasharray="8 4"/>
+        <!-- Deye → Battery -->
+        <path class="energy-flow" d="M 315 165 C 380 140, 420 80, 460 60" stroke="#4a9eff" stroke-width="2" fill="none" stroke-dasharray="8 4"/>
+        <!-- Deye → Grid -->
+        <path class="energy-flow" d="M 315 175 C 380 170, 420 155, 460 145" stroke="#ff6b35" stroke-width="2" fill="none" stroke-dasharray="8 4"/>
+        <!-- Deye → Tesla -->
+        <path class="energy-flow" d="M 315 195 C 380 210, 420 225, 460 230" stroke="#9b59b6" stroke-width="2" fill="none" stroke-dasharray="8 4"/>
+        <!-- Deye → Aquarea -->
+        <path class="energy-flow" d="M 315 205 C 380 250, 420 295, 460 315" stroke="#00d4aa" stroke-width="2" fill="none" stroke-dasharray="8 4"/>
+        <!-- Battery → Home -->
+        <path class="energy-flow" d="M 580 60 C 640 60, 660 140, 685 170" stroke="#4a9eff" stroke-width="1.5" fill="none" stroke-dasharray="6 4"/>
+        <!-- Grid → Home -->
+        <path class="energy-flow" d="M 580 145 C 630 145, 660 165, 685 175" stroke="#ff6b35" stroke-width="1.5" fill="none" stroke-dasharray="6 4"/>
+
+        <!-- Power values along paths -->
+        <text x="155" y="170" fill="#f1c40f" font-family="JetBrains Mono, monospace" font-size="9" opacity="0.6">8.4kW</text>
+        <text x="400" y="70" fill="#4a9eff" font-family="JetBrains Mono, monospace" font-size="8" opacity="0.6">5.1kW</text>
+        <text x="410" y="143" fill="#ff6b35" font-family="JetBrains Mono, monospace" font-size="8" opacity="0.6">1.2kW</text>
+        <text x="400" y="245" fill="#9b59b6" font-family="JetBrains Mono, monospace" font-size="8" opacity="0.6">11kW</text>
+        <text x="400" y="320" fill="#00d4aa" font-family="JetBrains Mono, monospace" font-size="8" opacity="0.6">2.1kW</text>
+      </svg>
+    </div>
+    <div class="energy-legend">
+      <span class="energy-legend__item"><span class="energy-dot" style="background:#f1c40f"></span>Produkcja PV</span>
+      <span class="energy-legend__item"><span class="energy-dot" style="background:#4a9eff"></span>Bateria</span>
+      <span class="energy-legend__item"><span class="energy-dot" style="background:#ff6b35"></span>Sieć</span>
+      <span class="energy-legend__item"><span class="energy-dot" style="background:#9b59b6"></span>Tesla</span>
+      <span class="energy-legend__item"><span class="energy-dot" style="background:#00d4aa"></span>Pompa ciepła</span>
+    </div>
+  </section>
+
+  <!-- STATS BAR -->
+  <section class="stats-bar">
+    <div class="stats-bar__inner">
+      <div class="stats-bar__item">
+        <span class="stats-bar__value mono" data-target="47">0</span>
+        <span class="stats-bar__label">integracji aktywnych</span>
+      </div>
+      <div class="stats-bar__item">
+        <span class="stats-bar__value mono" data-target="3857">0</span>
+        <span class="stats-bar__label">encji w HA</span>
+      </div>
+      <div class="stats-bar__item">
+        <span class="stats-bar__value mono" data-target="65">0</span>
+        <span class="stats-bar__label">automatyzacji</span>
+      </div>
+      <div class="stats-bar__item">
+        <span class="stats-bar__value mono" data-target="847">0</span>
+        <span class="stats-bar__label">dni uptime</span>
+      </div>
+      <div class="stats-bar__item">
+        <span class="stats-bar__value mono" data-target="8">0</span>
+        <span class="stats-bar__label">protokołów</span>
+      </div>
+      <div class="stats-bar__item">
+        <span class="stats-bar__value mono" data-target="4">0</span>
+        <span class="stats-bar__label">warstwy sieci</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- TECH STACK -->
+  <section class="section" id="stack">
+    <div class="section__header">
+      <span class="section__tag mono">// TECH STACK</span>
+      <h2>Protokoły i narzędzia</h2>
+    </div>
+    <div class="stack-grid">
+      <div class="stack-group">
+        <h4 class="mono">Hardware</h4>
+        <div class="tags">
+          <span>ESP32</span><span>LoRa32 (WMBUS)</span><span>Waveshare ESP32-S3-POE</span>
+          <span>Deye Hybrid Inverter</span><span>Panasonic Aquarea</span><span>Tesla Model Y</span>
+          <span>Zigbee devices</span><span>ZAMEL SBW-02</span>
+        </div>
+      </div>
+      <div class="stack-group">
+        <h4 class="mono">Protokoły</h4>
+        <div class="tags">
+          <span>KNX TP</span><span>Modbus / RS485</span><span>M-Bus Wireless (WMBus)</span>
+          <span>OpenTherm</span><span>Zigbee</span><span>MQTT</span><span>REST / HTTP</span>
+          <span>TCP/IP / PoE / Ethernet</span>
+        </div>
+      </div>
+      <div class="stack-group">
+        <h4 class="mono">Platformy</h4>
+        <div class="tags">
+          <span>Home Assistant</span><span>ESPHome</span><span>HACS</span>
+          <span>SUPLA Cloud</span><span>Cloudflare</span><span>AppDaemon</span>
+        </div>
+      </div>
+      <div class="stack-group">
+        <h4 class="mono">Narzędzia / Języki</h4>
+        <div class="tags">
+          <span>YAML</span><span>Python</span><span>scipy.optimize</span>
+          <span>JavaScript</span><span>ApexCharts</span><span>mushroom-card</span>
+          <span>button-card</span><span>mini-graph-card</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section section--contact" id="contact">
+    <h2>Zbudujmy coś razem</h2>
+    <p class="contact__sub">Smart home, smart building, integracje przemysłowe — jeśli ma IP, możemy to zautomatyzować.</p>
+    <div class="contact__links">
+      <a href="https://github.com/" class="btn-outline mono">GitHub</a>
+      <a href="https://linkedin.com/in/mamcarz" class="btn-outline mono">LinkedIn</a>
+      <a href="mailto:pawel@mamcarz.com" class="btn-primary mono">Email</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <span class="mono">&copy; 2025 Paweł Mamcarz</span>
+    <span class="mono accent">// 3857 encji i rośnie</span>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
